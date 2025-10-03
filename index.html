@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Work Posture Risk Assessment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form id="assessmentForm">
+
+    <!-- Intro Page -->
+    <div class="page active" id="introPage">
+      <img src="คำชี้แจง.png" alt="Instructions" class="intro-img">
+      <div class="intro-text">
+        <h2><u><b>Instructions</b></u></h2>
+        <p>This program is used for <b>self-assessment of work posture risk</b> according to FERA guidelines.</p>
+        <h3>How to use</h3>
+        <ol>
+          <li>Read each question and select the answer that best matches your posture</li>
+          <li>Illustrations are provided to help you decide</li>
+          <li>After completing all questions, the system will show your score and risk level</li>
+        </ol>
+        <p class="note">
+          The results are <b>preliminary assessment only</b> to help improve your work posture.<br>
+          This is not a medical diagnosis.
+        </p>
+      </div>
+      <div class="nav-buttons">
+        <button type="button" class="start-btn" onclick="startAssessment()">Start Assessment</button>
+      </div>
+    </div>
+
+    <!-- Page 1: Question 1 -->
+    <div class="page" id="page1">
+      <h2>Q1. Which posture best describes your head, neck, shoulders, upper back, arms, hands, and wrists while working?</h2>
+      <div id="upperPostureOptions" class="image-grid"></div>
+      <div class="nav-buttons">
+        <button type="button" onclick="nextUpperTimePage()">Next</button>
+      </div>
+    </div>
+
+    <!-- Page 2: Question 2 (Upper time) -->
+    <div class="page" id="page2"></div>
+
+    <!-- Page 3: Question 3 -->
+    <div class="page" id="page3">
+      <h2>Q3. Which posture best describes your lower back, knees, legs, and feet while working?</h2>
+      <div id="lowerPostureOptions" class="image-grid"></div>
+      <div class="nav-buttons">
+        <button type="button" onclick="prevPage()">Back</button>
+        <button type="button" onclick="nextLowerTimePage()">Next</button>
+      </div>
+    </div>
+
+    <!-- Page 4: Question 4 (Lower time) -->
+    <div class="page" id="page4"></div>
+
+    <!-- Page 5: Questions 5-7 -->
+    <div class="page" id="page5">
+      <h2>Q5. How much force do you need to use while working?</h2>
+      <label><input type="radio" name="force" value="1"> Less than 5 kg</label><br>
+      <label><input type="radio" name="force" value="2"> 5–10 kg</label><br>
+      <label><input type="radio" name="force" value="3"> More than 10 kg</label><br>
+
+      <h2>Q6. How repetitive is your work posture?</h2>
+      <label><input type="radio" name="repetition" value="1"> More than 4 times per minute</label><br>
+      <label><input type="radio" name="repetition" value="0"> Less than 4 times per minute</label><br>
+
+      <h2>Q7. Do you twist or rotate your wrist/neck while working?</h2>
+      <label><input type="radio" name="twist" value="1"> Yes, twisting/rotating occurs</label><br>
+      <label><input type="radio" name="twist" value="0"> No, twisting/rotating does not occur</label><br>
+
+      <div class="nav-buttons">
+        <button type="button" onclick="prevPage()">Back</button>
+        <button type="button" onclick="calculateResult()">Calculate Result</button>
+      </div>
+    </div>
+
+    <!-- Page 6: Result -->
+    <div class="page" id="page6">
+      <h2>Assessment Result</h2>
+      <p id="resultText"></p>
+      <a id="downloadLink" download>
+        <img id="resultImage" src="" alt="Result Image">
+      </a>
+      <p class="feedback-text">
+        To help improve this online self-assessment program for farmers, please provide your satisfaction level.
+      </p>
+      <div class="nav-buttons">
+        <button type="button" class="feedback-btn" onclick="goToFeedback()">📝 Satisfaction</button>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-auth-compat.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
