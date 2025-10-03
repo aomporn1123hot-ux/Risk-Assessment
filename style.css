@@ -1,0 +1,160 @@
+body {
+  font-family: "sans-serif";
+  margin: 16px;
+  background-color: #f9f9f9;
+  font-size: 38px;
+}
+
+.intro-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.intro-text {
+  margin: 20px auto;
+  text-align: center;
+  max-width: 900px;
+  font-size: 32px;
+  line-height: 1.5em;
+}
+
+.intro-text h2 { 
+  font-size: 48px; 
+  margin-bottom: 12px; 
+}
+
+.intro-text h3 { 
+  margin-top: 20px; 
+  font-size: 40px; 
+}
+
+.intro-text ol { 
+  text-align: left; 
+  display: inline-block; 
+  margin: 10px auto; 
+}
+
+.intro-text .note { 
+  color: #b22222; 
+  margin-top: 20px; 
+  font-size: 32px; 
+}
+
+h2 { 
+  color: #2a4d4d; 
+  font-size: 42px; 
+}
+
+.page { 
+  display: none; 
+}
+
+.page.active { 
+  display: block; 
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.image-option {
+  border: 0.5mm solid lightgreen;
+  border-radius: 12px;
+  padding: 4px;
+  width: 32%;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 28px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.image-option img { 
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
+  border-radius: 8px; 
+}
+
+.image-option input { 
+  display: none; 
+}
+
+.image-option.selected { 
+  border: 1mm solid limegreen; 
+  box-shadow: 0 0 12px limegreen; 
+}
+
+.image-option .checkmark {
+  display: none; 
+  position: absolute; 
+  top: 6px; 
+  right: 6px;
+  background: limegreen; 
+  color: white; 
+  border-radius: 50%; 
+  width: 36px; 
+  height: 36px;
+  font-size: 24px; 
+  text-align: center; 
+  line-height: 36px;
+}
+
+.image-option.selected .checkmark { 
+  display: block; 
+}
+
+.nav-buttons { 
+  margin-top: 16px; 
+  text-align: center; 
+}
+
+button { 
+  padding: 20px 36px; 
+  margin: 4px; 
+  font-size: 36px; 
+  border: none; 
+  cursor: pointer; 
+}
+
+.start-btn { 
+  background-color: #007BFF; 
+  color: white; 
+  border-radius: 8px; 
+}
+
+#resultImage { 
+  max-width: 100%; 
+  height: auto; 
+  border: 0.5mm solid lightgreen; 
+  display: block; 
+  margin: 8px auto; 
+  max-height: 1080px; 
+}
+
+#resultText, .feedback-text {
+  font-size: 42px;  
+  text-align: center;
+  color: #2a4d4d;
+  margin: 16px auto;
+}
+
+button.feedback-btn {
+  background-color: green;
+  color: white;
+  font-size: 44px;
+  padding: 24px 48px;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+button.feedback-btn:hover {
+  background-color: #32CD32;
+}
