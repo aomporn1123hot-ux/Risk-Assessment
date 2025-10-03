@@ -145,4 +145,4 @@ function calculateResult(){
 }
 
 // Feedback
-function goToFeedback(){ window.location.href="https://aomporn1123hot-ux.github.io/Like/"; }
+function goToFeedback(){ window.location.href="https://aomporn1123hot-ux.github.io/Satisfaction-Level/"; }
