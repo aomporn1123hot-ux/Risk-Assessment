@@ -1,4 +1,4 @@
-// --- 🔥 Firebase โปรเจกต์เดิม ---
+// --- 🔥 Firebase โปรเจกต์เดิม (compat) ---
 const firebaseConfig1 = {
   apiKey: "AIzaSyDf0D2GLLDHoAVX4zq-tLuVocSmsrFhs38",
   authDomain: "fera-2215e.firebaseapp.com",
@@ -13,7 +13,7 @@ const db1 = app1.database();
 const auth1 = app1.auth();
 auth1.signInAnonymously().catch(console.error);
 
-// --- 🔥 Firebase โปรเจกต์ใหม่ ---
+// --- 🔥 Firebase โปรเจกต์ใหม่ (compat เช่นกัน) ---
 const firebaseConfig2 = {
   apiKey: "AIzaSyAy88t3sZ_OEoQP0jRxVYKOLG1gucvRGsg",
   authDomain: "fera-ergonomics.firebaseapp.com",
