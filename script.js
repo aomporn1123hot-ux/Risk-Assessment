@@ -1,4 +1,6 @@
-// --- 🔥 Firebase โปรเจกต์เดิม (compat) ---
+// ==================== FIREBASE SETUP ====================
+
+// โปรเจกต์เก่า
 const firebaseConfig1 = {
   apiKey: "AIzaSyDf0D2GLLDHoAVX4zq-tLuVocSmsrFhs38",
   authDomain: "fera-2215e.firebaseapp.com",
@@ -8,12 +10,8 @@ const firebaseConfig1 = {
   messagingSenderId: "810225127285",
   appId: "1:810225127285:web:fa87166d4e3e4770670d3c"
 };
-const app1 = firebase.initializeApp(firebaseConfig1, "app1");
-const db1 = app1.database();
-const auth1 = app1.auth();
-auth1.signInAnonymously().catch(console.error);
 
-// --- 🔥 Firebase โปรเจกต์ใหม่ (compat เช่นกัน) ---
+// โปรเจกต์ใหม่
 const firebaseConfig2 = {
   apiKey: "AIzaSyAy88t3sZ_OEoQP0jRxVYKOLG1gucvRGsg",
   authDomain: "fera-ergonomics.firebaseapp.com",
@@ -24,25 +22,30 @@ const firebaseConfig2 = {
   appId: "1:111595993339:web:80119030f63a850447985e",
   measurementId: "G-2T11CCPNY7"
 };
+
+// สร้าง instance แยกชื่อ
+const app1 = firebase.initializeApp(firebaseConfig1, "app1");
 const app2 = firebase.initializeApp(firebaseConfig2, "app2");
+
+// ใช้ database ของแต่ละโปรเจกต์
+const db1 = app1.database();
 const db2 = app2.database();
-const auth2 = app2.auth();
-auth2.signInAnonymously().catch(console.error);
 
-// --- ✅ ฟังก์ชันส่งข้อมูลไปทั้งสองฐาน ---
+// login 匿名 (จำเป็นเพื่ออนุญาตเขียน)
+firebase.auth().signInAnonymously().catch(e => console.error("Auth error:", e));
+
+// ฟังก์ชันส่งข้อมูลไปทั้งสองโปรเจกต์
 function sendToFirebase(data) {
-  // ส่งเข้าโปรเจกต์เดิม
-  db1.ref("assessments").push(data, error => {
-    if (error) console.error("❌ Error saving to old Firebase:", error);
-    else console.log("✅ Saved to old Firebase");
-  });
-
-  // ส่งเข้าโปรเจกต์ใหม่
-  db2.ref("assessments").push(data, error => {
-    if (error) console.error("❌ Error saving to new Firebase:", error);
-    else console.log("✅ Saved to new Firebase");
-  });
+  try {
+    db1.ref("assessments").push(data);
+    db2.ref("assessments").push(data);
+    console.log("✅ Data sent to both Firebase projects");
+  } catch (err) {
+    console.error("❌ Error saving data:", err);
+  }
 }
+
+// ========================================================
 
 // Pages
 const pages = document.querySelectorAll(".page");
