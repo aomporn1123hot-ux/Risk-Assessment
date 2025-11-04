@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Work Posture Risk Assessment</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <form id="assessmentForm">
 
-    <!-- Page0 -->
+    <!-- Page0: Instructions -->
     <div class="page active" id="page0">
       <img src="คำชี้แจง.png" alt="Instructions" class="intro-img">
       <div class="intro-text">
@@ -26,11 +27,11 @@
         </p>
       </div>
       <div class="nav-buttons">
-        <button type="button" class="start-btn" onclick="startAssessment()">Start Assessment</button>
+        <button type="button" class="start-btn">Start Assessment</button>
       </div>
     </div>
 
-    <!-- Page 1: Question 1 -->
+    <!-- Page1: Q1 Upper posture -->
     <div class="page" id="page1">
       <h2>Q1. Which posture best describes your head, neck, shoulders, upper back, arms, hands, and wrists while working?</h2>
       <div id="upperPostureOptions" class="image-grid"></div>
@@ -39,10 +40,10 @@
       </div>
     </div>
 
-    <!-- Page 2: Question 2 (Upper time) -->
+    <!-- Page2: Q2 Upper time -->
     <div class="page" id="page2"></div>
 
-    <!-- Page 3: Question 3 -->
+    <!-- Page3: Q3 Lower posture -->
     <div class="page" id="page3">
       <h2>Q3. Which posture best describes your lower back, knees, legs, and feet while working?</h2>
       <div id="lowerPostureOptions" class="image-grid"></div>
@@ -52,10 +53,10 @@
       </div>
     </div>
 
-    <!-- Page 4: Question 4 (Lower time) -->
+    <!-- Page4: Q4 Lower time -->
     <div class="page" id="page4"></div>
 
-    <!-- Page 5: Questions 5-7 -->
+    <!-- Page5: Q5–Q7 -->
     <div class="page" id="page5">
       <h2>Q5. How much force do you need to use while working?</h2>
       <label><input type="radio" name="force" value="1"> Less than 5 kg</label><br>
@@ -76,7 +77,7 @@
       </div>
     </div>
 
-    <!-- Page 6: Result -->
+    <!-- Page6: Result -->
     <div class="page" id="page6">
       <h2>Assessment Result</h2>
       <p id="resultText"></p>
