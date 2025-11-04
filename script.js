@@ -47,7 +47,6 @@ function sendToFirebase(data) {
 
 // ========================================================
 
-
 // ========== ส่วนแสดงหน้าแบบประเมิน ==========
 
 const pages = document.querySelectorAll(".page");
@@ -65,14 +64,20 @@ function prevPage() {
 // ฟังก์ชันสร้างตัวเลือกภาพ
 function createImageOptions(containerId, name, count, prefix) {
   const container = document.getElementById(containerId);
+  if (!container) {
+    console.error("Container not found:", containerId);
+    return;
+  }
   container.innerHTML = "";
   for (let i = 1; i <= count; i++) {
     const label = document.createElement("div");
     label.className = "image-option";
+    label.style.cursor = "pointer";
     label.innerHTML = `
       <input type="radio" name="${name}" value="${i}">
-      <img src="${prefix}${i}.png" alt="${prefix}${i}">
-      <div class="checkmark">✔</div>`;
+      <img src="./images/${prefix}${i}.png" alt="${prefix}${i}">
+      <div class="checkmark">✔</div>
+    `;
     label.addEventListener("click", () => {
       document.querySelectorAll(`#${containerId} .image-option`).forEach(opt => opt.classList.remove("selected"));
       label.classList.add("selected");
@@ -86,6 +91,7 @@ function createImageOptions(containerId, name, count, prefix) {
 function startAssessment() {
   createImageOptions("upperPostureOptions", "upperPosture", 10, "บน");
   createImageOptions("lowerPostureOptions", "lowerPosture", 8, "ล่าง");
+  console.log("✅ Image options created");
   showPage(1);
 }
 
